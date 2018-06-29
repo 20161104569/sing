@@ -41,7 +41,7 @@ int load()
 {
     FILE *fp;
     int i,j=0;
-    fp=fopen("c:\\score.txt","r");
+    fp=fopen("Users/a201611104569/Desktop/score.txt","r");
     for(i=0; i<M; i++)
         fscanf(fp,"%s%d%d%d%d%d",s[i].name,&s[i].score[j],&s[i].score[j+1],&s[i].score[j+2],&s[i].score[j+3],&s[i].score[j+4]);
     printf("%d 位歌手的信息读入完毕，随意按一键......\n",M);
@@ -132,7 +132,7 @@ void save1()
         getchar(); getchar();
         
     }
-    fp=fopen("c:\\backup1.txt","w");
+    fp=fopen("Users/a201611104569/Desktop/caipan.txt","w");
     for(i=0; i<M; i++)
     {
         fprintf(fp,"第 %d 个歌手的姓名是：%s\n",i+1,s[i].name);
@@ -155,7 +155,7 @@ void save2()
         getchar(); getchar();
         
     }
-    fp=fopen("d:\\info.txt","w");
+    fp=fopen("Users/a201611104569/Desktop/dafen.txt","w");
     fprintf(fp,"歌手分数计算结果及最终名次如下：\n\n");
     for(i=0; i<M; i++)
         fprintf(fp,"获得第 %d 名的歌手姓名是：%s，最后得分：%.2f\n\n",s[i].rank,s[i].name,s[i].avg);
