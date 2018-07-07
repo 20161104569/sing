@@ -24,13 +24,13 @@ int append()
     int i,j;
     for(i=0; i<M; i++)
     {
-        printf("请输入第 %d 个歌手的姓名：",i+1);
+        printf("请输入第 %d 个选手的姓名：",i+1);
         scanf("%s",s[i].name);
         printf("\n");
     }
     for(i=0; i<M; i++)
     {
-        printf("请输入裁判给第 %d 个歌手 %s 打的 5 个演唱分数:\n",i+1,s[i].name);
+        printf("请输入裁判给第 %d 个选手 %s 打的 5 个表演分数:\n",i+1,s[i].name);
         for(j=0; j<N; j++)
             scanf("%d",&s[i].score[j]);
     }
@@ -44,7 +44,7 @@ int load()
     fp=fopen("Users/a201611104569/Desktop/score.txt","r");
     for(i=0; i<M; i++)
         fscanf(fp,"%s%d%d%d%d%d",s[i].name,&s[i].score[j],&s[i].score[j+1],&s[i].score[j+2],&s[i].score[j+3],&s[i].score[j+4]);
-    printf("%d 位歌手的信息读入完毕，随意按一键......\n",M);
+    printf("%d 位选手的信息读入完毕，随意按一键......\n",M);
     getchar(); getchar();
     fclose(fp);
     return 0;
@@ -54,14 +54,14 @@ void list()
     int i,j;
     if(flag==0)
     {
-        printf("歌手信息为空，请利用键盘输入或文件读入！\n");
+        printf("选手信息为空，请利用键盘输入或文件读入！\n");
         printf("按任意键返回\n");
         getchar(); getchar();
         
     }
     for(i=0; i<M; i++)
     {
-        printf("第 %d 个歌手的姓名是：%s\n",i+1,s[i].name);
+        printf("第 %d 个选手的姓名是：%s\n",i+1,s[i].name);
         for(j=0; j<N; j++)
             printf("裁判 %d：%d 分 ",j+1,s[i].score[j]);
         printf("\n");
@@ -76,7 +76,7 @@ void sort()
     char xm[30];
     if(flag==0)
     {
-        printf("\n歌手信息为空，请利用键盘输入或文件读入！\n\n");
+        printf("\n选手信息为空，请利用键盘输入或文件读入！\n\n");
         printf("按任意键返回......");
         getchar(); getchar();
     }
@@ -113,9 +113,9 @@ void sort()
         if(fabs(s[i].avg-s[i-1].avg)<1e-5)
             s[i].rank=s[i-1].rank;
     }
-    printf("\n歌手分数计算结果及最终名次如下：\n\n");
+    printf("\n选手分数计算结果及最终名次如下：\n\n");
     for(i=0; i<M; i++)
-        printf("获得第 %d 名的歌手姓名是：%s，最后得分：%.2f\n\n",s[i].rank,s[i].name,s[i].avg);
+        printf("获得第 %d 名的选手姓名是：%s，最后得分：%.2f\n\n",s[i].rank,s[i].name,s[i].avg);
     printf("按任意键返回 ......");
     getchar(); getchar();
 }
@@ -127,7 +127,7 @@ void save1()
     
     if(flag==0)
     {
-        printf("\n歌手信息为空，请利用键盘输入或文件读入！\n\n");
+        printf("\n选手信息为空，请利用键盘输入或文件读入！\n\n");
         printf("按任意键返回......");
         getchar(); getchar();
         
@@ -135,12 +135,12 @@ void save1()
     fp=fopen("Users/a201611104569/Desktop/caipan.txt","w");
     for(i=0; i<M; i++)
     {
-        fprintf(fp,"第 %d 个歌手的姓名是：%s\n",i+1,s[i].name);
+        fprintf(fp,"第 %d 个选手的姓名是：%s\n",i+1,s[i].name);
         for(j=0; j<N; j++)
             fprintf(fp,"裁判 %d：%d 分 ",j+1,s[i].score[j]);
         fprintf(fp,"\n\n");
     }
-    printf("\n%d 位歌手的信息保存完毕，随意按一键......\n",M);
+    printf("\n%d 位选手的信息保存完毕，随意按一键......\n",M);
     getchar(); getchar();
     fclose(fp);
 }
@@ -150,16 +150,16 @@ void save2()
     int i;
     if(flag==0)
     {
-        printf("\n歌手信息为空，请利用键盘输入或文件读入！\n\n");
+        printf("\n选手信息为空，请利用键盘输入或文件读入！\n\n");
         printf("按任意键返回......");
         getchar(); getchar();
         
     }
     fp=fopen("Users/a201611104569/Desktop/dafen.txt","w");
-    fprintf(fp,"歌手分数计算结果及最终名次如下：\n\n");
+    fprintf(fp,"选手分数计算结果及最终名次如下：\n\n");
     for(i=0; i<M; i++)
-        fprintf(fp,"获得第 %d 名的歌手姓名是：%s，最后得分：%.2f\n\n",s[i].rank,s[i].name,s[i].avg);
-    printf("\n%d 位歌手的信息保存完毕，随意按一键......\n",M);
+        fprintf(fp,"获得第 %d 名的选手姓名是：%s，最后得分：%.2f\n\n",s[i].rank,s[i].name,s[i].avg);
+    printf("\n%d 位选手的信息保存完毕，随意按一键......\n",M);
     getchar(); getchar();
     fclose(fp);
 }
@@ -171,12 +171,12 @@ void main()
         do
         {
             system("cls");
-            printf("1、键盘输入歌手的姓名及裁判打分信息\n\n");
-            printf("2、文件载入歌手的姓名及裁判打分信息\n\n");
-            printf("3、显示歌手的姓名及裁判打分信息\n\n");
-            printf("4、计算歌手的最终得分并排序\n\n");
-            printf("5、保存歌手的姓名及裁判打分信息\n\n");
-            printf("6、保存歌手的得分结果及最终名次\n\n");
+            printf("1、键盘输入选手的姓名及裁判打分信息\n\n");
+            printf("2、文件载入选手的姓名及裁判打分信息\n\n");
+            printf("3、显示选手的姓名及裁判打分信息\n\n");
+            printf("4、计算选手的最终得分并排序\n\n");
+            printf("5、保存选手的姓名及裁判打分信息\n\n");
+            printf("6、保存选手的得分结果及最终名次\n\n");
             printf("7、退出\n\n");
             printf("请您选择：");
             scanf("%d",&choice);
